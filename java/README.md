@@ -1,4 +1,3 @@
-# Capstone Starter Project
 
 ## Database
 
@@ -28,8 +27,8 @@ The database superuser—meaning `postgres`—must only be used for database adm
 
 | Username | Description |
 | -------- | ----------- |
-| `final_capstone_owner` | This user is the schema owner. It has full access—meaning granted all privileges—to all database objects within the `capstone` schema and also has privileges to create new schema objects. This user can be used to connect to the database from PGAdmin for administrative purposes. |
-| `final_capstone_appuser` | The application uses this user to make connections to the database. This user is granted `SELECT`, `INSERT`, `UPDATE`, and `DELETE` privileges for all database tables and can `SELECT` from all sequences. The application datasource has been configured to connect using this user. |
+| `homecrafted_owner` | This user is the schema owner. It has full access—meaning granted all privileges—to all database objects within the `capstone` schema and also has privileges to create new schema objects. This user can be used to connect to the database from PGAdmin for administrative purposes. |
+| `homecrafted_appuser` | The application uses this user to make connections to the database. This user is granted `SELECT`, `INSERT`, `UPDATE`, and `DELETE` privileges for all database tables and can `SELECT` from all sequences. The application datasource has been configured to connect using this user. |
 
 
 ## Spring Boot
@@ -37,7 +36,7 @@ Note: Spring Boot has been configured to run on port `9000` for this project. Yo
 
 ### Datasource
 
-A Datasource has been configured for you in `src/resources/application.properties`. It connects to the database using the `capstone_appuser` database user. You can change the name of this database if you want, but remember to change it here and in the `create.sh` script in the database folder:
+A Datasource has been configured for you in `src/resources/application.properties`. It connects to the database using the `homecrafted_appuser` database user. You can change the name of this database if you want, but remember to change it here and in the `create.sh` script in the database folder:
 
 ```
 # datasource connection properties
@@ -49,7 +48,7 @@ spring.datasource.password=finalcapstone
 
 ### JdbcTemplate
 
-If you look in `/src/main/java/com/techelevator/dao`, you'll see `JdbcUserDao`. This is an example of how to get an instance of `JdbcTemplate` in your DAOs. If you declare a field of type `JdbcTemplate` and add it as an argument to the constructor, Spring automatically injects an instance for you:
+If you look in `/src/main/java/com/homecrafted/dao`, you'll see `JdbcUserDao`. This is an example of how to get an instance of `JdbcTemplate` in your DAOs. If you declare a field of type `JdbcTemplate` and add it as an argument to the constructor, Spring automatically injects an instance for you:
 
 ```java
 @Service
@@ -78,7 +77,7 @@ public class AuthenticationController {
 
 ## Security
 
-Most of the functionality related to Security is located in the `src/main/java/com/techelevator/security` package. You shouldn't have to modify anything here, but feel free to go through the code if you want to see how things work.
+Most of the functionality related to Security is located in the `src/main/java/com/homecrafted/security` package. You shouldn't have to modify anything here, but feel free to go through the code if you want to see how things work.
 
 ### Authentication Controller
 
